@@ -7,13 +7,20 @@
 2) Link the repo into the default collection path
 
 ```
-mkdir ~/.ansible/collections/ansible_collections/nmake
+mkdir -p ~/.ansible/collections/ansible_collections/nmake
 ln -s ~/projects/inventory ~/.ansible/collections/ansible_collections/nmake
 ```
 
 3) Define a `nmake_inventory_csv` file:
 
-```
+Note:
+
+- A value in the format of `vars:xxx` will be replace with values from the yaml file above
+- A column called groups should contain a space delimited list of groups the host should belong to
+- All other columns will be added as attributes of the host in the inventory
+- See the constructued inventory plugin for details about `compose`, `keyed_groups` and `groups`
+
+```yaml
 plugin: nmake.inventory.csv
 source: "/full/path/to/inventory.csv"
 
@@ -62,14 +69,14 @@ vyos10[1:4],vyos,vars:ansible_user,vars:ansible_password,vars:ansible_become_pas
 
 5) Update the ansible.cfg file to allow the CSV inventory plugin:
 
-```
+```ini
 [inventory]
 enable_plugins = nmake.inventory.csv
 ```
 
 6) Run ansible:
 
-```
+```yaml
 # site.yaml
 - hosts: all
   gather_facts: False
@@ -83,6 +90,6 @@ enable_plugins = nmake.inventory.csv
       msg: "{{ hostvars[inventory_hostname] }}"
 ```
 
-```
+```shell
 ansible-playbook -i nmake_inventory_csv.yaml site.yaml
 ```
