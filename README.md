@@ -73,8 +73,247 @@ vyos10[1:4],vyos,vars:ansible_user,vars:ansible_password,vars:ansible_become_pas
 [inventory]
 enable_plugins = nmake.inventory.csv
 ```
+6) Check the inventory
 
-6) Run ansible:
+```bash
+ansible-inventory -i nmake_inventory_csv.yaml --list
+```
+
+```json
+{
+    "_meta": {
+        "hostvars": {
+            "eos101": {
+                "ansible_become": true,
+                "ansible_become_method": "enable",
+                "ansible_become_pass": "{{ lookup('env', 'ansible_become_pass') }}",
+                "ansible_connection": "network_cli",
+                "ansible_network_os": "eos",
+                "ansible_password": "{{ lookup('env', 'ansible_password') }}",
+                "ansible_python_interpreter": "python",
+                "ansible_user": "{{ lookup('env', 'ansible_user') }}",
+                "site": "my_lab"
+            },
+            "eos102": {
+                "ansible_become": true,
+                "ansible_become_method": "enable",
+                "ansible_become_pass": "{{ lookup('env', 'ansible_become_pass') }}",
+                "ansible_connection": "network_cli",
+                "ansible_network_os": "eos",
+                "ansible_password": "{{ lookup('env', 'ansible_password') }}",
+                "ansible_python_interpreter": "python",
+                "ansible_user": "{{ lookup('env', 'ansible_user') }}",
+                "site": "my_lab"
+            },
+            "eos103": {
+                "ansible_become": true,
+                "ansible_become_method": "enable",
+                "ansible_become_pass": "{{ lookup('env', 'ansible_become_pass') }}",
+                "ansible_connection": "network_cli",
+                "ansible_network_os": "eos",
+                "ansible_password": "{{ lookup('env', 'ansible_password') }}",
+                "ansible_python_interpreter": "python",
+                "ansible_user": "{{ lookup('env', 'ansible_user') }}",
+                "site": "my_lab"
+            },
+            "eos104": {
+                "ansible_become": true,
+                "ansible_become_method": "enable",
+                "ansible_become_pass": "{{ lookup('env', 'ansible_become_pass') }}",
+                "ansible_connection": "network_cli",
+                "ansible_network_os": "eos",
+                "ansible_password": "{{ lookup('env', 'ansible_password') }}",
+                "ansible_python_interpreter": "python",
+                "ansible_user": "{{ lookup('env', 'ansible_user') }}",
+                "site": "my_lab"
+            },
+            "nxos101": {
+                "ansible_become": false,
+                "ansible_become_method": "enable",
+                "ansible_become_pass": "{{ lookup('env', 'ansible_become_pass') }}",
+                "ansible_connection": "network_cli",
+                "ansible_network_os": "nxos",
+                "ansible_password": "{{ lookup('env', 'ansible_password') }}",
+                "ansible_python_interpreter": "python",
+                "ansible_user": "{{ lookup('env', 'ansible_user') }}",
+                "site": "my_lab"
+            },
+            "nxos102": {
+                "ansible_become": false,
+                "ansible_become_method": "enable",
+                "ansible_become_pass": "{{ lookup('env', 'ansible_become_pass') }}",
+                "ansible_connection": "network_cli",
+                "ansible_network_os": "nxos",
+                "ansible_password": "{{ lookup('env', 'ansible_password') }}",
+                "ansible_python_interpreter": "python",
+                "ansible_user": "{{ lookup('env', 'ansible_user') }}",
+                "site": "my_lab"
+            },
+            "nxos103": {
+                "ansible_become": false,
+                "ansible_become_method": "enable",
+                "ansible_become_pass": "{{ lookup('env', 'ansible_become_pass') }}",
+                "ansible_connection": "network_cli",
+                "ansible_network_os": "nxos",
+                "ansible_password": "{{ lookup('env', 'ansible_password') }}",
+                "ansible_python_interpreter": "python",
+                "ansible_user": "{{ lookup('env', 'ansible_user') }}",
+                "site": "my_lab"
+            },
+            "nxos104": {
+                "ansible_become": false,
+                "ansible_become_method": "enable",
+                "ansible_become_pass": "{{ lookup('env', 'ansible_become_pass') }}",
+                "ansible_connection": "network_cli",
+                "ansible_network_os": "nxos",
+                "ansible_password": "{{ lookup('env', 'ansible_password') }}",
+                "ansible_python_interpreter": "python",
+                "ansible_user": "{{ lookup('env', 'ansible_user') }}",
+                "site": "my_lab"
+            },
+            "vyos101": {
+                "ansible_become": false,
+                "ansible_become_method": "enable",
+                "ansible_become_pass": "{{ lookup('env', 'ansible_become_pass') }}",
+                "ansible_connection": "network_cli",
+                "ansible_network_os": "vyos",
+                "ansible_password": "{{ lookup('env', 'ansible_password') }}",
+                "ansible_python_interpreter": "python",
+                "ansible_user": "{{ lookup('env', 'ansible_user') }}",
+                "site": "my_lab"
+            },
+            "vyos102": {
+                "ansible_become": false,
+                "ansible_become_method": "enable",
+                "ansible_become_pass": "{{ lookup('env', 'ansible_become_pass') }}",
+                "ansible_connection": "network_cli",
+                "ansible_network_os": "vyos",
+                "ansible_password": "{{ lookup('env', 'ansible_password') }}",
+                "ansible_python_interpreter": "python",
+                "ansible_user": "{{ lookup('env', 'ansible_user') }}",
+                "site": "my_lab"
+            },
+            "vyos103": {
+                "ansible_become": false,
+                "ansible_become_method": "enable",
+                "ansible_become_pass": "{{ lookup('env', 'ansible_become_pass') }}",
+                "ansible_connection": "network_cli",
+                "ansible_network_os": "vyos",
+                "ansible_password": "{{ lookup('env', 'ansible_password') }}",
+                "ansible_python_interpreter": "python",
+                "ansible_user": "{{ lookup('env', 'ansible_user') }}",
+                "site": "my_lab"
+            },
+            "vyos104": {
+                "ansible_become": false,
+                "ansible_become_method": "enable",
+                "ansible_become_pass": "{{ lookup('env', 'ansible_become_pass') }}",
+                "ansible_connection": "network_cli",
+                "ansible_network_os": "vyos",
+                "ansible_password": "{{ lookup('env', 'ansible_password') }}",
+                "ansible_python_interpreter": "python",
+                "ansible_user": "{{ lookup('env', 'ansible_user') }}",
+                "site": "my_lab"
+            }
+        }
+    },
+    "all": {
+        "children": [
+            "blue",
+            "eos",
+            "nxos",
+            "orange",
+            "red",
+            "site_my_lab",
+            "ungrouped",
+            "vyos",
+            "yellow"
+        ]
+    },
+    "blue": {
+        "hosts": [
+            "nxos101",
+            "nxos102",
+            "nxos103",
+            "nxos104"
+        ]
+    },
+    "eos": {
+        "hosts": [
+            "eos101",
+            "eos102",
+            "eos103",
+            "eos104"
+        ]
+    },
+    "nxos": {
+        "hosts": [
+            "nxos101",
+            "nxos102",
+            "nxos103",
+            "nxos104"
+        ]
+    },
+    "orange": {
+        "hosts": [
+            "eos101",
+            "eos102",
+            "eos103",
+            "eos104",
+            "vyos101",
+            "vyos102",
+            "vyos103",
+            "vyos104"
+        ]
+    },
+    "red": {
+        "hosts": [
+            "eos101",
+            "eos102",
+            "eos103",
+            "eos104",
+            "nxos101",
+            "nxos103",
+            "vyos101",
+            "vyos102",
+            "vyos103",
+            "vyos104"
+        ]
+    },
+    "site_my_lab": {
+        "hosts": [
+            "eos101",
+            "eos102",
+            "eos103",
+            "eos104",
+            "nxos101",
+            "nxos102",
+            "nxos103",
+            "nxos104",
+            "vyos101",
+            "vyos102",
+            "vyos103",
+            "vyos104"
+        ]
+    },
+    "vyos": {
+        "hosts": [
+            "vyos101",
+            "vyos102",
+            "vyos103",
+            "vyos104"
+        ]
+    },
+    "yellow": {
+        "hosts": [
+            "nxos102",
+            "nxos104"
+        ]
+    }
+}
+```
+
+7) Run ansible:
 
 ```yaml
 # site.yaml
