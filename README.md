@@ -50,12 +50,12 @@ column_replace:
 
 4) Define the CSV file:
 
-Note:
+  Note:
 
-- A value in the format of `vars:xxx` will be replace with values from the yaml file above
-- A column called groups should contain a space delimited list of groups the host should belong to
-- All other columns will be added as attributes of the host in the inventory
-- See the constructued inventory plugin for details about `compose`, `keyed_groups` and `groups`
+  - A value in the format of `vars:xxx` will be replaced with values from the yaml file above
+  - A column called groups should contain a space delimited list of groups the host should belong to
+  - All other columns will be added as attributes of the host in the inventory
+  - See the constructued inventory plugin for details about `compose`, `keyed_groups` and `groups`
 
 ```
 host,os,ansible_user,ansible_password,ansible_become_pass,site,groups
