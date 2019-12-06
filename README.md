@@ -11,7 +11,7 @@ mkdir -p ~/.ansible/collections/ansible_collections/nmake
 ln -s ~/projects/inventory ~/.ansible/collections/ansible_collections/nmake
 ```
 
-3) Define a `nmake_inventory_csv` file:
+3) Define a `nmake_inventory_csv.yaml` file:
 
 ```yaml
 plugin: nmake.inventory.csv
