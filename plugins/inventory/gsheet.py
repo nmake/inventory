@@ -22,11 +22,11 @@ SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
 
 
 DOCUMENTATION = """
-    name: name.inventory.csv
+    name: name.inventory.gsheet
     plugin_type: inventory
-    short_description: Use a CSV file as an inventory source
+    short_description: Use a Google sheet as an inventory source
     description:
-        - Use a CSV file as an inventory source
+        - Use a Google sheet as an inventory source
     extends_documentation_fragment:
       - constructed
     options:
@@ -66,10 +66,12 @@ EXAMPLES = """
 # vyos10[1:4],vyos,vars:ansible_user,vars:ansible_password,vars:ansible_become_pass,my_lab,orange red
 
 
-# nmake_inventory_csv.yaml
+# nmake_inventory_gsheet.yaml
 
-plugin: nmake.inventory.csv
-source: "/home/user/github/test_csv_inventory/inventory.csv"
+plugin: nmake.inventory.gsheet
+credentials: /home/username/credentials.json
+token: /home/username/token.pickle
+sheet_id: 1iTRfuFTPidnJoplKVH4e5znlk3my
 
 # add an attribute to each host based on a conditional
 compose:
